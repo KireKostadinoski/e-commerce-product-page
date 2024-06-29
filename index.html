@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <title>Simple tailwind starter</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide img {
+            min-width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w-full bg-White">
+         <!-- Lightbox div -->
+       <!-- Lightbox div -->
+       <div class="hidden xl:justify-center xl:items-center xl:z-30 xl:absolute inset-0 bg-black bg-opacity-75 w-full h-screen" id="lightboxDiv">
+        <div class="flex flex-col justify-center items-center space-y-4 relative">
+            <!-- Carousel Images Container -->
+            <div class="relative w-full max-w-lg flex overflow-hidden" id="carouselInner">
+                <div class="flex transition-transform duration-500 ease-in-out transform" id="carouselItems">
+                    <img src="./images/image-product-1.jpg" alt="Product Image 1" class="xl:rounded-2xl xl:h-96 w-full flex-shrink-0">
+                    <img src="./images/image-product-2.jpg" alt="Product Image 2" class="xl:rounded-2xl xl:h-96 w-full flex-shrink-0">
+                    <img src="./images/image-product-3.jpg" alt="Product Image 3" class="xl:rounded-2xl xl:h-96 w-full flex-shrink-0">
+                    <img src="./images/image-product-4.jpg" alt="Product Image 4" class="xl:rounded-2xl xl:h-96 w-full flex-shrink-0">
+                </div>
+            </div>
+            <!-- Navigation Buttons -->
+            <div class="absolute w-9 h-9 flex justify-center items-center bg-white rounded-full top-[34%] -left-4 cursor-pointer" id="prevButton">
+                <img src="./images/icon-previous.svg" alt="Previous">
+            </div>
+            <div class="absolute w-9 h-9 flex justify-center items-center bg-white rounded-full top-[34%] -right-4 cursor-pointer" id="nextButton">
+                <img src="./images/icon-next.svg" alt="Next">
+            </div>
+            <!-- Close Button -->
+            <img src="./images/icon-close.svg" alt="Close" class="absolute -top-10 right-0 cursor-pointer" id="lightboxClose">
+            <!-- Thumbnails -->
+            <div class="hidden xl:flex flex-row justify-between items-center space-x-4">
+                <img src="./images/image-product-1-thumbnail.jpg" id="lightboxImage1" alt="Thumbnail 1" class="rounded-xl h-24 w-h-24 border hover:border-Orange hover:border-2 hover:opacity-75 cursor-pointer duration-100">
+                <img src="./images/image-product-2-thumbnail.jpg" id="lightboxImage2" alt="Thumbnail 2" class="rounded-xl h-24 w-h-24 border hover:border-Orange hover:border-2 hover:opacity-75 cursor-pointer duration-100">
+                <img src="./images/image-product-3-thumbnail.jpg" id="lightboxImage3" alt="Thumbnail 3" class="rounded-xl h-24 w-h-24 border hover:border-Orange hover:border-2 hover:opacity-75 cursor-pointer duration-100">
+                <img src="./images/image-product-4-thumbnail.jpg" id="lightboxImage4" alt="Thumbnail 4" class="rounded-xl h-24 w-h-24 border hover:border-Orange hover:border-2 hover:opacity-75 cursor-pointer duration-100">
+            </div>
+        </div>
+    </div>
+
+        <nav id="navbar">
+            <!-- Mobile menu -->
+            <div class="w-[70%] h-screen absolute bg-white z-30 p-10 space-y-14 hidden" id="mobileMenu">
+                <img src="./images/icon-close.svg" alt="" id="closeMenu" class="cursor-pointer">
+                <ul class="space-y-4">
+                    <li><a href="#" class="py-9 font-bold text-black">Collections</a>
+                    </li>
+                    <li><a href="#" class="py-9 font-bold text-black">Men<a>
+                    </li>
+                    <li><a href="#" class="py-9 font-bold text-black">Women</a>
+                    </li>
+                    <li><a href="#" class="py-9 font-bold text-black">About</a>
+                    </li>
+                    <li><a href="#" class="py-9 font-bold text-black">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="flex flex-row justify-between items-center p-6 xl:mx-32  xl:border-b-2 relative">
+                <div class="flex flex-row items-center space-x-8">
+                    <!-- Menu btn -->
+                    <img src="./images/icon-menu.svg" alt="" class="w-6 cursor-pointer xl:hidden" id="menu">
+
+                    <img src="./images/logo.svg" alt="">
+                    <ul class="hidden xl:flex flex-row justify-center items-center space-x-8">
+                        <li><a href="#"
+                                class="text-DarkGrayishBlue py-9 hover:border-b-4 hover:border-b-Orange hover:text-Black duration-150">Collections</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-DarkGrayishBlue py-9 hover:border-b-4 hover:border-b-Orange hover:text-Black duration-150">Men<a>
+                        </li>
+                        <li><a href="#"
+                                class="text-DarkGrayishBlue py-9 hover:border-b-4 hover:border-b-Orange hover:text-Black duration-150">Women</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-DarkGrayishBlue py-9 hover:border-b-4 hover:border-b-Orange hover:text-Black duration-150">About</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-DarkGrayishBlue py-9 hover:border-b-4 hover:border-b-Orange hover:text-Black duration-150">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex flex-row justify-center items-center space-x-4 xl:space-x-8">
+                    <div class="relative flex justify-center items-center cursor-pointer w-10 h-10">
+                        <img src="./images/icon-cart.svg" alt="" id="cartBtn">
+                        <div class="absolute top-1 right-0 hidden justify-center items-center bg-Orange w-5 h-4 rounded-lg font-bold text-white text-[10px]"
+                            id="cartNotification">
+
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center cursor-pointer w-12 h-12">
+                        <img src="./images/image-avatar.png" alt=""
+                            class="border rounded-full hover:border-Orange hover:border-2 duration-75">
+                    </div>
+                </div>
+                <!-- Cart div -->
+                <div class="absolute z-20 top-28 right-3 w-[95%] h-72 bg-white rounded-lg hidden lg:w-72 xl:w-96 xl:h-64 xl:top-20 xl:-right-6 xl:shadow-xl"
+                    id="cartDiv">
+                    <div class="border-b-2 h-[20%]">
+                        <h2 class="text-Black font-bold text-lg p-4">Cart</h2>
+                    </div>
+                    <div class="justify-center items-center h-[80%] flex" id="emptyCartDiv">
+                        <h2 class="text-gray-500 font-bold tracking-wide">Your cart is empty.</h2>
+                    </div>
+                    <div class=" flex-col w-full mx-auto space-y-2 hidden" id="fullCartDiv">
+                        <div class="flex flex-row justify-between items-center p-8 space-x-3 w-full">
+                            <div class="w-12 h-12">
+                                <img src="./images/image-product-1.jpg" alt="">
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <h4 class="text-DarkGrayishBlue text-sm">Fall Limited Edition Sneakers</h4>
+                                <h4 class="text-DarkGrayishBlue text-sm">$125.00 x <span id="quantityCart"> </span>
+                                    <span class="text-Black font-bold" id="totalPrice"> $</span>
+                                </h4>
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <img src="./images/icon-delete.svg" alt="" class="cursor-pointer w-6 h-6"
+                                    id="deleteCartItem">
+                            </div>
+                        </div>
+                        <div
+                            class="w-[80%] mx-auto bg-Orange flex justify-center items-center px-10 py-3 rounded-lg font-bold cursor-pointer">
+                            Checkout
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section id="main">
+            <div class="flex flex-col items-center xl:px-20 xl:py-12 xl:space-x-24 xl:flex-row xl:mx-44">
+                <div class="flex flex-col justify-between space-y-10 xl:w-1/2">
+                    <div class="carousel-container w-full max-w-4xl mx-auto relative">
+                        <div class="carousel-slide">
+                            <img src="./images/image-product-1.jpg" alt="Image 1" class="xl:rounded-2xl xl:h-96 w-full cursor-pointer" id="lightboxOpen">
+                            <img src="./images/image-product-2.jpg" alt="Image 2" class="xl:rounded-2xl xl:h-96 w-full cursor-pointer">
+                            <img src="./images/image-product-3.jpg" alt="Image 3" class="xl:rounded-2xl xl:h-96 w-full cursor-pointer">
+                            <img src="./images/image-product-4.jpg" alt="Image 4" class="xl:rounded-2xl xl:h-96 w-full cursor-pointer">
+                        </div>
+                        <div class="absolute w-9 h-9 flex justify-center items-center bg-white rounded-full top-[50%] left-6 cursor-pointer xl:hidden prev">
+                            <img src="./images/icon-previous.svg" alt="Previous">
+                        </div>
+                        <div class="absolute w-9 h-9 flex justify-center items-center bg-white rounded-full top-[50%] right-6 cursor-pointer xl:hidden next">
+                            <img src="./images/icon-next.svg" alt="Next">
+                        </div>
+                    </div>
+                    <div class="hidden xl:flex flex-row justify-between items-center space-x-2">
+                        <img src="./images/image-product-1-thumbnail.jpg" alt="" class="rounded-xl h-24 w-24 border hover:border-Orange hover:border-2 hover:opacity-75 cursor-pointer duration-75">
+                        <img src="./images/image-product-2-thumbnail.jpg" alt="" class="rounded-xl h-24 w-24 border hover:border-Orange hover:border-2 hover:opacity-75 cursor-pointer duration-75">
+                        <img src="./images/image-product-3-thumbnail.jpg" alt="" class="rounded-xl h-24 w-24 border hover:border-Orange hover:border-2 hover:opacity-75 cursor-pointer duration-75">
+                        <img src="./images/image-product-4-thumbnail.jpg" alt="" class="rounded-xl h-24 w-24 border hover:border-Orange hover:border-2 hover:opacity-75 cursor-pointer duration-75">
+                    </div>
+ 
+                </div>
+
+                <div class="flex flex-col justify-start items-center space-y-8 p-6 xl:w-1/2">
+                    <div class="flex flex-col justify-start space-y-4">
+                        <h4 class="text-DarkGrayishBlue tracking-widest font-semibold text-lg">SNEAKER COMPANY</h4>
+                        <h1 class="text-4xl font-bold xl:text-5xl">Fall Limited Edition Sneakers</h1>
+                    </div>
+                    <div class="flex flex-col justify-start space-y-4">
+                        <p class="text-DarkGrayishBlue">
+                            These low-profile sneakers are your perfect casual wear companion. Featuring a durable
+                            rubber outer sole,
+                            they’ll withstand everything the weather can offer.
+                        </p>
+                        <div class="flex flex-col items-baseline justify-start space-x-3 space-y-2">
+                            <div class="flex flex-row justify-start items-center space-x-3 space-y-2">
+                                <h2 class="text-Black font-bold text-3xl">$125.00</h2>
+                                <div class="flex justify-center items-center px-3 bg-black text-white rounded-md">
+                                    <h4>50%</h4>
+                                </div>
+                            </div>
+                            <h2 class="text-GrayishBlue font-bold line-through text-xl">$250.00</h2>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col space-y-4 w-full xl:flex-row xl:space-x-4 xl:space-y-0">
+                        <div class="flex flex-row justify-between rounded-xl px-6 bg-LightGrayishBlue xl:w-36 h-14">
+                            <div class="flex justify-center items-center cursor-pointer" id="decreaseQuantity">
+                                <img src="./images/icon-minus.svg" alt="">
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <h2 id="quantity" class="text-black font-bold">0</h2>
+                            </div>
+                            <div class="flex justify-center items-center cursor-pointer" id="increaseQuantity">
+                                <img src="./images/icon-plus.svg" alt="">
+                            </div>
+                        </div>
+                        <div id="addToCart"
+                            class="flex flex-row justify-center items-center bg-Orange space-x-2 py-4 px-16 rounded-xl cursor-pointer font-bold hover:bg-orange-300 duration-150">
+                            <img src="./images/icon-cart.svg" alt="">
+                            <h3>Add to cart</h3>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
